@@ -78,8 +78,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="ut.cpp" />
-    <ClCompile Include="VTFLibTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ut.h" />
