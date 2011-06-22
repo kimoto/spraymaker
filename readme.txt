@@ -33,3 +33,7 @@ written by Ruby programming language.
 $ ruby ./download_libs.rb
 ------------------------------
 
+#2. compile
+you can build this program!
+Visual Studio C++ Express 2010 
+
