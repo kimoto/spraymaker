@@ -16,3 +16,20 @@ High quality spray maker for valve source engine.
 more description is here
 http://kimoto.github.com/spraymaker.html
 
+= Compile =
+#1. setup dependencies files
+this program dependencies ImageMagick++, VTFLib library
+download from official website and extract following hierarchy
+------------------------------
+./spraymaker/VTFLib.dll
+./spraymaker/vtflib131-bin/
+./spraymaker/magick/include/
+./spraymaker/magick/lib/
+------------------------------
+
+auto download & setting script exist. recommend use this.
+written by Ruby programming language.
+------------------------------
+$ ruby ./download_libs.rb
+------------------------------
+
