@@ -71,7 +71,7 @@ void show_last_error()
     FORMAT_MESSAGE_FROM_SYSTEM,
     NULL,
     GetLastError(),
-    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // デフォルト ユーザー言語 
+    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
     (LPTSTR) &lpMessageBuffer,
     0,
     NULL );
@@ -152,7 +152,7 @@ LPTSTR get_file_system_time_string(LPCTSTR path)
 
 void each_directory(LPCTSTR dir, void (*func) (LPCTSTR path), bool recursive_option)
 {
-  // 引数がディレクトリであるか？
+  // Is directory?
   if(!::PathIsDirectory(dir)){
     return;
   }
@@ -167,7 +167,7 @@ void each_directory(LPCTSTR dir, void (*func) (LPCTSTR path), bool recursive_opt
   }
 
   do{
-    // .と..に対しては何も処理しない
+    // do not anything if filename equal "." or ".."
     if(::wcscmp(win32fd.cFileName, L".") == 0 || ::wcscmp(win32fd.cFileName, L"..") == 0){
       ;
     }else{
@@ -176,11 +176,11 @@ void each_directory(LPCTSTR dir, void (*func) (LPCTSTR path), bool recursive_opt
 
       if(win32fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
         if(recursive_option){
-          // 要素がディレクトリであった場合、さらに再帰で探索
+          // recursive search
           ::each_directory(fullpath, func, recursive_option);
         }
       }else{
-        // 普通のファイルだったとき、関数ポインタ呼び出し
+        // call specified callback-function
         func(fullpath);
       }
     }
