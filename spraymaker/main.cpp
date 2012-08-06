@@ -14,11 +14,32 @@
 #pragma comment(lib, "VTFLib.lib")
 using namespace VTFLib;
 
-#pragma warning(push)
+/*#pragma warning(push)
 #pragma warning(disable : 4251)
+*/
 #include <Magick++.h>
-#pragma warning(pop)
+
+/*#pragma warning(pop)
 #pragma comment(lib, "CORE_RL_Magick++_.lib")
+/*
+#pragma comment(lib, "CORE_DB_bzlib_.lib")
+#pragma comment(lib, "CORE_DB_coders_.lib")
+#pragma comment(lib, "CORE_DB_filters_.lib")
+#pragma comment(lib, "CORE_DB_jbig_.lib")
+#pragma comment(lib, "CORE_DB_jp2_.lib")
+#pragma comment(lib, "CORE_DB_jpeg_.lib")
+#pragma comment(lib, "CORE_DB_lcms_.lib")
+#pragma comment(lib, "CORE_DB_libxml_.lib")
+#pragma comment(lib, "CORE_DB_Magick++_.lib")
+#pragma comment(lib, "CORE_DB_magick_.lib")
+#pragma comment(lib, "CORE_DB_png_.lib")
+#pragma comment(lib, "CORE_DB_tiff_.lib")
+#pragma comment(lib, "CORE_DB_ttf_.lib")
+#pragma comment(lib, "CORE_DB_wand_.lib")
+#pragma comment(lib, "CORE_DB_wmf_.lib")
+#pragma comment(lib, "CORE_DB_xlib_.lib")
+#pragma comment(lib, "CORE_DB_zlib_.lib")
+*/
 
 #include <string>
 using namespace std;
@@ -152,10 +173,10 @@ int convertToHighQuaritySprayVTF(unsigned int size, LPCTSTR inputPath, LPCTSTR o
       // if not read image file, no operation
     }
   }
-
+  
   // resize specified image size (size x size)
   image.resize(Magick::Geometry(size, size));
-
+  
   // create output image file structure
   CVTFFile file;
   file.Create(size, size);
@@ -211,7 +232,7 @@ void convertToHighQuaritySprayVTF_Wrap(LPCTSTR input_path)
   }
 
   // convert to vtf file (256x256) and BGRA8888
-  if( ::convertToHighQuaritySprayVTF(256, input_path, output_path, ::IMAGE_FORMAT_BGRA8888) != 0 ){
+  if( ::convertToHighQuaritySprayVTF(256, input_path, output_path, ::IMAGE_FORMAT_DXT5) != 0 ){
     ::msgbox(L"cannot write spray: %s", output_path);
   }else{
     ::MessageBeep(MB_ICONASTERISK);

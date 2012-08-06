@@ -1,4 +1,5 @@
 spraymaker
+Author: kimoto (http://github.com/kimoto)
 
 = WTF =
 easy to create VTF file(spray) for Valve SourceEngine Games.
